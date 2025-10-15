@@ -30,7 +30,7 @@ class GeminiService:
     Servicio para interactuar con Google Gemini API.
     """
     
-   def __init__(self):
+    def __init__(self):
         if not API_KEY:
             raise ValueError("GEMINI_API_KEY no encontrada en las variables de entorno")
         
