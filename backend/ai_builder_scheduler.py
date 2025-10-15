@@ -23,7 +23,7 @@ from typing import Dict, List, Tuple, Optional, Union
 
 # Importar servicio de Gemini
 try:
-    from backend.services.gemini_service import get_gemini_service
+    from services.gemini_service import get_gemini_service  
     GEMINI_AVAILABLE = True
 except ImportError:
     GEMINI_AVAILABLE = False
