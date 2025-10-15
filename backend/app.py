@@ -25,7 +25,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ai_builder_scheduler import AIBuilderScheduler
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://cronograma-obra-ia.vercel.app"}})
+CORS(app, resources={r"/*": {"origins": "https://cronograma-obra-ia-git-main-d4rkops-projects.vercel.app"}})
 
 # Instancia global del scheduler
 scheduler = AIBuilderScheduler()
