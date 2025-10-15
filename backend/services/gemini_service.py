@@ -12,23 +12,29 @@ import google.generativeai as genai
 import os
 import json
 from typing import Dict, List, Optional, Any
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 # Cargar variables de entorno
-load_dotenv()
+#load_dotenv()
+
+API_KEY = os.getenv("GEMINI_API_KEY")
+if not API_KEY:
+    print("⚠️ GEMINI_API_KEY no encontrada, usando lógica predefinida")
+else:
+    print("✅ GEMINI_API_KEY detectada correctamente")
+    genai.configure(api_key=API_KEY)
+    
 
 class GeminiService:
     """
     Servicio para interactuar con Google Gemini API.
     """
     
-    def __init__(self):
-        """Inicializa el servicio de Gemini."""
-        self.api_key = os.getenv('GEMINI_API_KEY')
-        if not self.api_key:
+   def __init__(self):
+        if not API_KEY:
             raise ValueError("GEMINI_API_KEY no encontrada en las variables de entorno")
         
-        genai.configure(api_key=self.api_key)
+        self.api_key = API_KEY
         self.model = genai.GenerativeModel('gemini-2.0-flash')
         
         # Configuración de seguridad
